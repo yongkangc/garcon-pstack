@@ -4,6 +4,8 @@ A small, evidence-first engineering workflow for [OpenAI Codex](https://develope
 
 `garcon-pstack` packages six focused skills for investigation, design, defect fixing, review, and verification. It keeps the useful idea behind pstack, a dispatcher backed by rigorous engineering playbooks, while removing runtime-specific assumptions and heavyweight orchestration.
 
+New users should start with [The garcon-pstack guide](docs/guide/README.md). It walks through installation, routing, each workflow, Garcon integration, and copyable recipes.
+
 ## Why this exists
 
 [Cursor pstack](https://github.com/cursor/plugins/tree/main/pstack) is a broad workflow system built around Cursor primitives, model panels, agents, playbooks, and automation. [pstack-claude](https://github.com/michael-denyer/pstack-claude) ports much of that system to Claude Code and provides a Codex compatibility layer.
@@ -57,9 +59,9 @@ codex plugin add garcon-pstack@garcon-pstack
 Invoke a skill explicitly:
 
 ```text
-$garcon-mode investigate why this worker can outlive its owning chat
-$garcon-review review the current branch against main
-$garcon-verify verify that the fix closes the original lifecycle gap
+$garcon-pstack:garcon-mode investigate why this worker can outlive its owning chat
+$garcon-pstack:garcon-review review the current branch against main
+$garcon-pstack:garcon-verify verify that the fix closes the original lifecycle gap
 ```
 
 Codex may also select a skill from its description when the request is a close match.
@@ -69,8 +71,10 @@ Codex may also select a skill from its description when the request is a close m
 Garcon discovers Codex skills through the Codex app-server. Its Codex integration accepts leading slash invocations, so use:
 
 ```text
-/garcon-mode investigate why this worker can outlive its owning chat
+/garcon-pstack:garcon-mode investigate why this worker can outlive its owning chat
 ```
+
+Plugin skills are namespaced by Codex. The `garcon-pstack:` prefix is therefore part of every installed command name.
 
 Garcon persists shared agent skills under its `agents-home` volume in container deployments. Install the plugin inside the same environment that runs Codex so the app-server can discover it.
 

@@ -7,6 +7,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -118,10 +119,26 @@ def validate_public_content() -> None:
                 fail(f"{label} found in {path.relative_to(ROOT)}")
 
 
+def validate_markdown_links() -> None:
+    link_pattern = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+    for path in ROOT.rglob("*.md"):
+        if ".git" in path.parts:
+            continue
+        content = path.read_text(encoding="utf-8")
+        for raw_target in link_pattern.findall(content):
+            target = raw_target.strip().split("#", 1)[0]
+            if not target or target.startswith(("https://", "http://", "mailto:", "codex://")):
+                continue
+            resolved = (path.parent / unquote(target)).resolve()
+            if not resolved.exists():
+                fail(f"broken relative link in {path.relative_to(ROOT)}: {raw_target}")
+
+
 def main() -> None:
     validate_manifests()
     validate_skills()
     validate_public_content()
+    validate_markdown_links()
     print("garcon-pstack validation passed")
 
 
