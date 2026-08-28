@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Investigate"
+  short_description: "Explain systems from concrete repository evidence"
+  default_prompt: "Use $garcon-investigate to investigate this question without changing the repository."

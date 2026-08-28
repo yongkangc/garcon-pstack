@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Design"
+  short_description: "Settle data, ownership, and interfaces first"
+  default_prompt: "Use $garcon-design to design this change against the current repository."

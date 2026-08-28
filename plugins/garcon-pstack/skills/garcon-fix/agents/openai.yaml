@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Fix"
+  short_description: "Reproduce and fix defects at the root cause"
+  default_prompt: "Use $garcon-fix to reproduce, fix, and verify this defect."

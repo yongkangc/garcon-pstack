@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Review"
+  short_description: "Find confirmed defects in an exact change"
+  default_prompt: "Use $garcon-review to review this exact change for confirmed defects."

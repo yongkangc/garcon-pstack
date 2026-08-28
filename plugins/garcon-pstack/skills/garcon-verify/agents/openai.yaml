@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Verify"
+  short_description: "Test claims against the real artifact"
+  default_prompt: "Use $garcon-verify to verify what this implementation actually proves."
