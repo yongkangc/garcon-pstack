@@ -1,6 +1,6 @@
 ---
 name: garcon-mode
-description: Route a non-trivial engineering task through a small evidence-first workflow for investigation, design, fixes, review, or verification.
+description: Route a non-trivial engineering task through a small evidence-first workflow for investigation, design, fixes, review, verification, or verification-skill maintenance.
 ---
 
 # Garcon Mode
@@ -16,6 +16,8 @@ Read repository instructions first. Then select the matching sibling skill:
 - Read `../garcon-fix/SKILL.md` when the requested outcome includes a code change for a defect.
 - Read `../garcon-review/SKILL.md` for review-only work.
 - Read `../garcon-verify/SKILL.md` when validating an implementation, claim, release, or external state.
+- Read `../garcon-create-verification/SKILL.md` when a project lacks a real-app verification skill or feature map.
+- Read `../garcon-maintain-verification/SKILL.md` when auditing an existing verification skill for source/live drift.
 
 Combine workflows only when the task genuinely crosses their boundaries. Do not load every sibling by default.
 

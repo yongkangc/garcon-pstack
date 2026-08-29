@@ -75,6 +75,8 @@ def validate_skills() -> None:
         "garcon-fix",
         "garcon-review",
         "garcon-verify",
+        "garcon-create-verification",
+        "garcon-maintain-verification",
     }
     actual = {path.name for path in SKILLS.iterdir() if path.is_dir()}
     if actual != expected:

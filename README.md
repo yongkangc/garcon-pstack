@@ -2,7 +2,7 @@
 
 A small, evidence-first engineering workflow for [OpenAI Codex](https://developers.openai.com/codex/) and [Garcon](https://github.com/cfal/garcon).
 
-`garcon-pstack` packages six focused skills for investigation, design, defect fixing, review, and verification. It keeps the useful idea behind pstack, a dispatcher backed by rigorous engineering playbooks, while removing runtime-specific assumptions and heavyweight orchestration.
+`garcon-pstack` packages eight focused skills for investigation, design, defect fixing, review, verification-skill generation, and verification-skill maintenance. It keeps the useful idea behind pstack, a dispatcher backed by rigorous engineering playbooks, while removing runtime-specific assumptions and heavyweight orchestration.
 
 New users should start with [The garcon-pstack guide](docs/guide/README.md). It walks through installation, routing, each workflow, Garcon integration, and copyable recipes.
 
@@ -31,6 +31,8 @@ The smaller scope is intentional:
 | `garcon-fix` | Reproduce and fix a defect at its root cause. |
 | `garcon-review` | Review an exact change for confirmed defects. |
 | `garcon-verify` | Test claims against the real artifact. |
+| `garcon-create-verification` | Generate a project-local verification skill and feature map. |
+| `garcon-maintain-verification` | Keep a verification skill and feature map accurate as the project changes. |
 
 Each skill works independently. `garcon-mode` is the convenient entry point for tasks that need routing.
 
