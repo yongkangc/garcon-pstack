@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Create Verification"
+  short_description: "Generate a real-app verification skill"
+  default_prompt: "Use $garcon-create-verification to create a project-local verification skill and feature map."

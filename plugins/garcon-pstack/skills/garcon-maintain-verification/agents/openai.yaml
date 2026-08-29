@@ -1,0 +1,4 @@
+interface:
+  display_name: "Garcon Maintain Verification"
+  short_description: "Audit verification skill drift"
+  default_prompt: "Use $garcon-maintain-verification to audit and update the project's verification skill."
