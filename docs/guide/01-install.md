@@ -33,6 +33,8 @@ garcon-pstack:garcon-design
 garcon-pstack:garcon-fix
 garcon-pstack:garcon-review
 garcon-pstack:garcon-verify
+garcon-pstack:garcon-create-verification
+garcon-pstack:garcon-maintain-verification
 ```
 
 ## Invoke from Codex

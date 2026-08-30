@@ -14,7 +14,9 @@ Give the skill a symptom and expected behavior rather than a preferred patch:
 /garcon-pstack:garcon-fix cancellation publishes completion twice after a retry. Reproduce it, find the earliest violated invariant, and add a regression test.
 ```
 
-The workflow should identify the exact failing path before editing. A guard that merely hides downstream damage is not a root-cause fix.
+The workflow should identify the exact failing path before editing. It cycles through an observation, a cause hypothesis, and a check that distinguishes that hypothesis from plausible alternatives. Source evidence can prove that a deterministic code path causes the behavior under its stated preconditions. Source inspection alone cannot prove that an external runtime or incident supplied those preconditions, and correlation does not establish that trigger. A guard that merely hides downstream damage is not a root-cause fix.
+
+When a focused automated check can represent the defect faithfully, capture the failing result before the edit and the passing result afterward. If only a narrower check is available, state exactly what it does and does not prove.
 
 ## Preserve the real worktree
 

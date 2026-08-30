@@ -19,6 +19,8 @@ Garcon resolves the exact names returned by Codex. Plugin skills include their n
 /garcon-pstack:garcon-fix
 /garcon-pstack:garcon-review
 /garcon-pstack:garcon-verify
+/garcon-pstack:garcon-create-verification
+/garcon-pstack:garcon-maintain-verification
 ```
 
 Trailing text becomes the task passed alongside the skill:

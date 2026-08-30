@@ -1,7 +1,7 @@
 {
   "name": "garcon-pstack",
-  "version": "0.1.0",
-  "description": "Lightweight, evidence-first engineering workflows for Codex and Garcon.",
+  "version": "0.2.0",
+  "description": "Lightweight, principle-guided engineering workflows for Codex and Garcon.",
   "author": {
     "name": "yongkangc",
     "url": "https://github.com/yongkangc"
@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Garcon pstack",
     "shortDescription": "Evidence-first engineering workflows for Codex.",
-    "longDescription": "A small Codex-native workflow stack for investigation, design, fixes, review, and verification. It integrates cleanly with Garcon without adding hooks, transcript readers, or durable orchestration state.",
+    "longDescription": "A small Codex-native workflow stack with clean-room principles for investigation, design, implementation, fixes, review, and verification. It integrates cleanly with Garcon without adding hooks, transcript readers, or durable orchestration state.",
     "developerName": "yongkangc",
     "category": "Developer Tools",
     "capabilities": [
@@ -30,7 +30,7 @@
     ],
     "websiteURL": "https://github.com/yongkangc/garcon-pstack",
     "defaultPrompt": [
-      "Use garcon-mode to handle this task with evidence-first verification.",
+      "Use garcon-mode to apply the relevant principles and deliver this task with evidence-first verification.",
       "Use garcon-review to review this change for confirmed defects.",
       "Use garcon-investigate to explain how this subsystem works."
     ],

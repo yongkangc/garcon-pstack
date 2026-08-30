@@ -60,7 +60,8 @@ These prompts use synthetic examples and can be adapted to a real repository.
 | Bug-fix playbook | `/garcon-pstack:garcon-fix` |
 | `/interrogate` | `/garcon-pstack:garcon-review` |
 | Prove-it-works principle | `/garcon-pstack:garcon-verify` |
+| Principle index | The principles built into `/garcon-pstack:garcon-mode` |
 
 The smaller plugin does not reproduce Cursor's sticky mode, model panels, cloud agents, PR orchestration, or transcript-driven memory. Codex and Garcon keep ownership of their native runtime behavior.
 
-Return to [The garcon-pstack guide](README.md).
+Next: [Apply the principles](08-principles.md).

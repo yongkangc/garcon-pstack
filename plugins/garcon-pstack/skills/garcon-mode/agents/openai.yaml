@@ -1,4 +1,4 @@
 interface:
   display_name: "Garcon Mode"
-  short_description: "Route work through evidence-first workflows"
-  default_prompt: "Use $garcon-mode to handle this engineering task with the smallest rigorous workflow."
+  short_description: "Route principle-guided engineering work"
+  default_prompt: "Use $garcon-mode to apply the relevant principles and deliver this engineering task with evidence."

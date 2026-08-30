@@ -2,7 +2,7 @@
 
 This guide teaches the complete `garcon-pstack` workflow through concrete tasks. The plugin is deliberately small, so the guide focuses on choosing the right skill, stating a finish condition, and evaluating the resulting evidence.
 
-The guide is independently written. It follows the task-oriented spirit of [Cursor pstack's public guide](https://github.com/cursor/plugins/tree/main/pstack/docs/guide) without copying its text or Cursor-specific runtime assumptions.
+The guide is independently written. It follows the task-oriented spirit of [Cursor pstack's public guide](https://github.com/cursor/plugins/tree/68836ddaf5697224520f1847d90cdb90ca8babaa/pstack/docs/guide) without copying its text or Cursor-specific runtime assumptions.
 
 ## Learning path
 
@@ -13,6 +13,7 @@ The guide is independently written. It follows the task-oriented spirit of [Curs
 5. [Review and verify](05-review-and-verify.md). Separate defect discovery from testing a concrete claim.
 6. [Use the skills through Garcon](06-garcon.md). Invoke namespaced skills and keep Garcon's control-plane responsibilities separate.
 7. [Recipes and boundaries](07-recipes-and-boundaries.md). Copy focused prompts and avoid the common failure modes.
+8. [Apply the principles](08-principles.md). Steer recurring engineering decisions with a compact, clean-room vocabulary.
 
 Read the chapters in order for the first task. After that, each chapter stands alone.
 

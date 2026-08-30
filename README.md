@@ -8,13 +8,14 @@ New users should start with [The garcon-pstack guide](docs/guide/README.md). It 
 
 ## Why this exists
 
-[Cursor pstack](https://github.com/cursor/plugins/tree/main/pstack) is a broad workflow system built around Cursor primitives, model panels, agents, playbooks, and automation. [pstack-claude](https://github.com/michael-denyer/pstack-claude) ports much of that system to Claude Code and provides a Codex compatibility layer.
+[Cursor pstack](https://github.com/cursor/plugins/tree/68836ddaf5697224520f1847d90cdb90ca8babaa/pstack) is a broad workflow system built around Cursor primitives, model panels, agents, playbooks, and automation. [pstack-claude](https://github.com/michael-denyer/pstack-claude/tree/c2ade4bba14fb4706857286afb5528bc2244bf44) ports much of that system to Claude Code and provides a Codex compatibility layer.
 
 This repository is a clean-room, Codex-native implementation. It is inspired by the public pstack architecture but does not copy its skill text or code.
 
 The smaller scope is intentional:
 
-- Six skills instead of a large skill graph.
+- Eight skills instead of a large skill graph.
+- A compact principles vocabulary inside `garcon-mode` instead of exposing 21 additional principle skills.
 - No startup hooks or always-on prompt injection.
 - No transcript readers or runtime-specific history paths.
 - No model names embedded in workflow instructions.
@@ -25,7 +26,7 @@ The smaller scope is intentional:
 
 | Skill | Purpose |
 | --- | --- |
-| `garcon-mode` | Route a task to the smallest relevant workflow. |
+| `garcon-mode` | Route and deliver a task with principle-guided implementation and an explicit delivery gate. |
 | `garcon-investigate` | Produce a read-only, evidence-backed explanation. |
 | `garcon-design` | Settle data shape, ownership, interfaces, and failure behavior. |
 | `garcon-fix` | Reproduce and fix a defect at its root cause. |
@@ -34,7 +35,7 @@ The smaller scope is intentional:
 | `garcon-create-verification` | Generate a project-local verification skill and feature map. |
 | `garcon-maintain-verification` | Keep a verification skill and feature map accurate as the project changes. |
 
-Each skill works independently. `garcon-mode` is the convenient entry point for tasks that need routing.
+Each skill works independently. `garcon-mode` is the convenient entry point for tasks that need routing, principle-guided implementation, and an explicit delivery gate.
 
 ## Install
 
@@ -111,6 +112,6 @@ Do not commit credentials, private URLs, real transcripts, customer data, or int
 
 ## Credits
 
-The dispatcher-and-playbook concept is inspired by [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/main/pstack). The lightweight integration target is [cfal/garcon](https://github.com/cfal/garcon).
+The dispatcher-and-playbook concept is inspired by [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/68836ddaf5697224520f1847d90cdb90ca8babaa/pstack). The lightweight integration target is [cfal/garcon](https://github.com/cfal/garcon).
 
 This project is independently implemented and released under the MIT License.
