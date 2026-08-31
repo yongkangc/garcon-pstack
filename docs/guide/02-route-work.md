@@ -23,7 +23,7 @@ Repository policy owns the base branch, worktree isolation, commits, CI, and PR 
 
 ## Use the principles as steering vocabulary
 
-`garcon-mode` includes fourteen named principles for decisions that recur across workflows. They cover empirical questions, data shape, holistic redesign, alternatives, abstraction, reader load, boundaries, mutable ownership, retries, incremental proof, structural guardrails, root causes, direct evidence, and the user and maintainer experience.
+`garcon-mode` includes a compact set of named principles for decisions that recur across workflows. They cover empirical questions, data shape, holistic redesign, alternatives, abstraction, reader load, boundaries, mutable ownership, retries, incremental proof, rerunnable leverage, structural guardrails, root causes, direct evidence, and the user and maintainer experience.
 
 The names are useful only when they change the work. For example, **Inspect before asking** can replace a speculative question with a safe probe. **Give mutable state one owner** can turn two agents editing one branch into isolated worktrees. **Prefer direct evidence** can replace a compile-only completion claim with a real behavior check.
 
