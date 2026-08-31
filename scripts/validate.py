@@ -96,6 +96,26 @@ def validate_skills() -> None:
             fail(f"default prompt must mention ${name}")
 
 
+def principle_names(path: Path) -> list[str]:
+    content = path.read_text(encoding="utf-8")
+    return re.findall(r"^- \*\*([^*]+)\.\*\*", content, re.MULTILINE)
+
+
+def validate_principle_guide() -> None:
+    skill_path = SKILLS / "garcon-mode" / "SKILL.md"
+    guide_path = ROOT / "docs" / "guide" / "08-principles.md"
+    skill_principles = principle_names(skill_path)
+    guide_principles = principle_names(guide_path)
+    if len(skill_principles) != len(set(skill_principles)):
+        fail(f"duplicate principle in garcon-mode: {skill_principles}")
+    if len(guide_principles) != len(set(guide_principles)):
+        fail(f"duplicate principle in guide: {guide_principles}")
+    if set(skill_principles) != set(guide_principles):
+        missing = sorted(set(skill_principles) - set(guide_principles))
+        extra = sorted(set(guide_principles) - set(skill_principles))
+        fail(f"principle guide differs from garcon-mode: missing={missing}, extra={extra}")
+
+
 def validate_public_content() -> None:
     text_files = [
         path
@@ -139,6 +159,7 @@ def validate_markdown_links() -> None:
 def main() -> None:
     validate_manifests()
     validate_skills()
+    validate_principle_guide()
     validate_public_content()
     validate_markdown_links()
     print("garcon-pstack validation passed")

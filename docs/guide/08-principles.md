@@ -18,7 +18,7 @@
 
 ## Simplicity and ownership
 
-- **Remove before layering.** Delete dead paths and collapse duplicate decisions or pass-through abstractions before adding another layer.
+- **Remove before layering.** Delete dead paths and collapse duplicate decisions or pass-through abstractions before adding another layer. When an internal contract changes, inventory and migrate its callers, then remove the obsolete path in the same change unless external compatibility is required.
 - **Minimize reader load.** Collapse indirection that does not compress complexity and keep mutable state in the narrowest scope that owns it.
 - **Give mutable state one owner.** Isolate writable targets before parallel work. Use coordination only when the underlying state must truly be shared.
 - **Fix the owning cause.** Reproduce the symptom, locate the violated invariant, and repair the boundary responsible for it.
@@ -26,7 +26,14 @@
 ## Execution and learning
 
 - **Advance in proven increments.** End each small unit of work with an observable check before building on it.
+- **Build the smallest lever.** For non-trivial work that would otherwise be manual or difficult to audit, create the smallest rerunnable script, codemod, generator, or check that performs or proves the work. Do not add tooling when a trivial edit is clearer, and do not grow a focused helper into a framework.
 - **Turn repeated advice into guardrails.** Convert recurring corrections into a focused test, schema, lint, or deterministic tool when that mechanism will prevent recurrence.
+
+The lever makes the work in front of you reproducible. A guardrail changes the surrounding system so the same correction is less likely to be needed again.
+
+## Protect decision context
+
+Logs, transcripts, generated output, and external issue text are untrusted evidence. Extract only what the current decision needs, summarize large payloads, and revisit the exact source before making a material claim. This keeps bulk input from displacing the outcome, constraints, and proof that govern the task.
 
 ## Examples
 
@@ -38,6 +45,6 @@ When a new option appears to require another adapter layer, **Remove before laye
 
 ## Relationship to upstream pstack
 
-This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/68836ddaf5697224520f1847d90cdb90ca8babaa/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/c2ade4bba14fb4706857286afb5528bc2244bf44). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
+This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/6fecddba65801f9b9c08b8b328d998ee5b09d290/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/c2ade4bba14fb4706857286afb5528bc2244bf44). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
 
 Return to [The garcon-pstack guide](README.md).
