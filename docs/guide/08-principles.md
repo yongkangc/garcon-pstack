@@ -5,13 +5,16 @@
 ## Evidence and intent
 
 - **Inspect before asking.** Settle behavior, output, performance, and other empirical forks by observation or a reversible probe. Ask when product intent, preference, or authorization cannot be discovered.
+- **Measure before optimizing.** Freeze a representative workload and measurement method, capture a baseline and profile, change the measured cause, and compare the result on the same harness. Source inspection may explain a measurement; it does not replace one.
 - **Prefer direct evidence.** Match each completion claim to the closest real artifact and relevant failure path. A build proves compilation; it does not prove runtime behavior.
 - **Serve users and maintainers.** Check both the result a user receives and the ownership model the next maintainer inherits.
 
 ## Shape and boundaries
 
 - **Shape before mechanism.** State the outcome and acceptance evidence, then identify state ownership, data shape, boundaries, and failure behavior before selecting an implementation.
+- **Model the domain.** Make each governing invariant visible in one representation suited to the problem. A transition model can own lifecycle rules, a lookup structure can own stable mappings, and a typed value can own constrained data. Keep local code when consolidation would only move complexity behind another name.
 - **Redesign holistically.** Treat a new requirement as part of the affected design's foundation rather than attaching a parallel path. Delivery can still be incremental.
+- **Pin behavior before restructuring.** Establish an executable before-state oracle for externally observable behavior before moving structure. It might be a focused characterization check, recorded input with golden output, or old-versus-new comparison. Compare every step with that oracle, and take newly discovered behavior corrections out of the refactor.
 - **Compare material alternatives.** When a novel or contested choice has several credible answers, compare concrete designs or reversible probes before committing.
 - **Keep contracts at boundaries.** Convert untrusted input into an explicit internal representation at entry points. Avoid repeating boundary checks throughout trusted logic.
 - **Make repeated operations converge.** Design retries, commands, migrations, and lifecycle operations so reruns and recovery from partial failure reach the intended state.
@@ -43,8 +46,14 @@ When two independent reviews need the same repository, **Give mutable state one 
 
 When a new option appears to require another adapter layer, **Remove before layering** first inventories obsolete paths and duplicate decisions. If the new layer does not hide real complexity after that subtraction, it does not earn a place.
 
+When a structural cleanup is meant to preserve behavior, **Pin behavior before restructuring** records the current output before files move. If the cleanup exposes a real defect, that defect becomes separate work instead of silently changing the refactor's contract.
+
+When a command is slow, **Measure before optimizing** keeps the workload and harness fixed across the change. The profile selects the cause to address, and the before-and-after comparison decides whether the change helped.
+
+At the delivery gate, name the release-critical invariants and follow their persisted or serialized forms across boundaries when the effect can escape the changed code. Exercise the cheapest real path that would expose a violation or mark the claim unproven. For high-risk or contested changes, a fresh read-only reviewer or verifier can add independent scrutiny, but `garcon-mode` retains the final judgment and evidence check.
+
 ## Relationship to upstream pstack
 
-This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/6fecddba65801f9b9c08b8b328d998ee5b09d290/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/c2ade4bba14fb4706857286afb5528bc2244bf44). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
+This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/efa2a531985e0a8084d36ff3cf87233be8a9f34b/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
 
 Return to [The garcon-pstack guide](README.md).

@@ -1,6 +1,6 @@
 ---
 name: garcon-mode
-description: Route and deliver a non-trivial engineering task through evidence-first principles for investigation, design, implementation, review, verification, or verification-skill maintenance.
+description: Route and deliver a non-trivial engineering task through evidence-first principles for investigation, design, implementation, performance work, review, verification, or verification-skill maintenance.
 ---
 
 # Garcon Mode
@@ -15,7 +15,9 @@ Read this section before routing multi-step work. Apply principles that change a
 
 - **Inspect before asking.** Resolve empirical forks with safe observations; ask only what evidence cannot settle.
 - **Shape before mechanism.** Define proof, ownership, data, boundaries, and failure behavior before implementation details.
+- **Model the domain.** Make each governing invariant visible in one representation suited to the problem. Prefer a state machine for transitions, a table for stable mappings, or a typed value for constrained data, but keep local code when consolidation would only add indirection.
 - **Redesign holistically.** Treat a new requirement as foundational to the affected design, even when delivery is incremental.
+- **Pin behavior before restructuring.** Establish an executable before-state oracle for externally observable behavior before moving structure. Compare every step with that oracle, and take newly discovered behavior corrections out of the refactor.
 - **Compare material alternatives.** For novel or contested decisions, compare concrete designs or probes before committing.
 - **Remove before layering.** Delete stale paths and duplicate decisions; require each new abstraction to hide real complexity. When replacing an internal contract, migrate its callers and delete the obsolete path in the same change unless external compatibility is part of the outcome.
 - **Minimize reader load.** Collapse pass-through layers and shrink mutable scope until ownership is easy to trace.
@@ -26,6 +28,7 @@ Read this section before routing multi-step work. Apply principles that change a
 - **Build the smallest lever.** When non-trivial work would otherwise be hand-applied or hard to audit, create the smallest rerunnable script, codemod, generator, or check that performs or proves it. Skip tooling for genuinely trivial edits, and do not turn a one-off helper into a framework.
 - **Turn repeated advice into guardrails.** Encode recurring corrections in a focused test, schema, lint, or small tool.
 - **Fix the owning cause.** Reproduce the failure and repair the owner of the violated invariant, not the symptom.
+- **Measure before optimizing.** Freeze a representative workload and measurement method, capture a baseline and profile, change the measured cause, and compare the result on the same harness.
 - **Prefer direct evidence.** Verify the real artifact and failure path; proxies prove narrower claims.
 - **Serve users and maintainers.** Optimize for the visible outcome and for ownership the next maintainer can trace.
 
@@ -41,13 +44,13 @@ Read repository instructions, then load only the sibling skills whose boundaries
 - Missing project verification workflow: `../garcon-create-verification/SKILL.md`.
 - Verification-workflow drift: `../garcon-maintain-verification/SKILL.md`.
 
-For a feature, refactor, or migration, investigate unknowns, design changed contracts, implement in proven increments, then review the diff and verify acceptance claims. `garcon-mode` owns this sequence; there is no generic implementation sibling.
+For a feature, refactor, migration, or measured performance change, investigate unknowns, design changed contracts, implement in proven increments, then review the diff and verify acceptance claims. `garcon-mode` owns this sequence; there is no generic implementation sibling.
 
 Before editing, inspect the intended base and worktree, then isolate the change from unrelated work. When delivery is authorized, follow repository policy for branches, commits, CI, and PR state. A PR request does not authorize merge or deployment.
 
 ## Delivery gate
 
-Before presenting a change as ready, compare the final artifact with the outcome, inspect the exact diff for scope drift, and verify material claims on the closest real surface. Mark each claim pass, fail, or blocked. Failed or blocked material claims are not merge-ready. Put incomplete work in a requested PR only when repository policy permits it, with the state labeled accurately.
+Before presenting a change as ready, compare the final artifact with the outcome, inspect the exact diff for scope drift, and verify material claims on the closest real surface. Name the release-critical invariants, follow their persisted or serialized forms across boundaries when the effect can escape the changed code, and exercise the cheapest real path that would expose a violation; otherwise mark the claim unproven. When independent scrutiny materially reduces risk, use a fresh read-only reviewer or verifier who did not author the diff; `garcon-mode` still owns synthesis and the final evidence check. Mark each claim pass, fail, or blocked. Failed or blocked material claims are not merge-ready. Put incomplete work in a requested PR only when repository policy permits it, with the state labeled accurately.
 
 ## Operating rules
 
