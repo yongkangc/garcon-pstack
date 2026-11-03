@@ -116,6 +116,21 @@ def validate_principle_guide() -> None:
         fail(f"principle guide differs from garcon-mode: missing={missing}, extra={extra}")
 
 
+def validate_delivery_gate() -> None:
+    content = (SKILLS / "garcon-mode" / "SKILL.md").read_text(encoding="utf-8")
+    required_phrases = {
+        "exact hosted revision": "exact head",
+        "required check inventory": "required check names",
+        "aggregate status warning": "aggregate status does not prove that a check ran",
+        "success-only check rule": "Require every required check to complete with a successful conclusion",
+        "exhaustive blocked rule": "Treat every other conclusion or status",
+        "evidence separation": "local validation separately from hosted checks and independent review",
+    }
+    for label, phrase in required_phrases.items():
+        if phrase not in content:
+            fail(f"garcon-mode delivery gate lacks {label}: {phrase}")
+
+
 def validate_public_content() -> None:
     text_files = [
         path
@@ -160,6 +175,7 @@ def main() -> None:
     validate_manifests()
     validate_skills()
     validate_principle_guide()
+    validate_delivery_gate()
     validate_public_content()
     validate_markdown_links()
     print("garcon-pstack validation passed")

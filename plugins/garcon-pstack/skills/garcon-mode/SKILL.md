@@ -50,7 +50,11 @@ Before editing, inspect the intended base and worktree, then isolate the change 
 
 ## Delivery gate
 
-Before presenting a change as ready, compare the final artifact with the outcome, inspect the exact diff for scope drift, and verify material claims on the closest real surface. Name the release-critical invariants, follow their persisted or serialized forms across boundaries when the effect can escape the changed code, and exercise the cheapest real path that would expose a violation; otherwise mark the claim unproven. When independent scrutiny materially reduces risk, use a fresh read-only reviewer or verifier who did not author the diff; `garcon-mode` still owns synthesis and the final evidence check. Mark each claim pass, fail, or blocked. Failed or blocked material claims are not merge-ready. Put incomplete work in a requested PR only when repository policy permits it, with the state labeled accurately.
+Before presenting a change as ready, compare the final artifact with the outcome, inspect the exact diff for scope drift, and verify material claims on the closest real surface. Name the release-critical invariants, follow their persisted or serialized forms across boundaries when the effect can escape the changed code, and exercise the cheapest real path that would expose a violation; otherwise mark the claim unproven. When independent scrutiny materially reduces risk, use a fresh read-only reviewer or verifier who did not author the diff; `garcon-mode` still owns synthesis and the final evidence check.
+
+For delivery through a hosted forge, resolve the required check names from repository policy or branch protection before deciding that the exact head is ready. Inspect every required check's conclusion. A successful aggregate status does not prove that a check ran. Require every required check to complete with a successful conclusion unless repository policy explicitly accepts a named alternative for that check. Treat every other conclusion or status, including skipped, neutral, cancelled, timed-out, action-required, missing, and still-running, as blocked. Record local validation separately from hosted checks and independent review.
+
+Mark each material claim pass, fail, or blocked. Failed or blocked material claims are not merge-ready. Put incomplete work in a requested PR only when repository policy permits it, with the state labeled accurately.
 
 ## Operating rules
 
