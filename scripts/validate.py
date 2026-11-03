@@ -122,7 +122,8 @@ def validate_delivery_gate() -> None:
         "exact hosted revision": "exact head",
         "required check inventory": "required check names",
         "aggregate status warning": "aggregate status does not prove that a check ran",
-        "skipped check handling": "skipped, neutral, cancelled, timed-out, action-required, missing, and still-running checks as blocked",
+        "success-only check rule": "Require every required check to complete with a successful conclusion",
+        "exhaustive blocked rule": "Treat every other conclusion or status",
         "evidence separation": "local validation separately from hosted checks and independent review",
     }
     for label, phrase in required_phrases.items():
