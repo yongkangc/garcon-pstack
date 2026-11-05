@@ -24,6 +24,7 @@ Read this section before routing multi-step work. Apply principles that change a
 - **Keep contracts at boundaries.** Parse untrusted input at entry and represent valid internal states explicitly.
 - **Give mutable state one owner.** Bound parallel work to independent questions or workstreams, isolate writable targets, and keep one owner for synthesis and verification; serialize intrinsic sharing.
 - **Make repeated operations converge.** Reruns and partial failures should reach the same intended state; test this when material.
+- **Make cleanup recoverable.** Inventory ownership, activity, and retention needs before removing state. Recheck the exact target immediately before mutation, preserve active or ambiguous work, and prefer quarantine or archival when reversal may matter.
 - **Advance in proven increments.** End each small unit with an observable check before starting the next.
 - **Build the smallest lever.** When non-trivial work would otherwise be hand-applied or hard to audit, create the smallest rerunnable script, codemod, generator, or check that performs or proves it. Skip tooling for genuinely trivial edits, and do not turn a one-off helper into a framework.
 - **Turn repeated advice into guardrails.** Encode recurring corrections in a focused test, schema, lint, or small tool.

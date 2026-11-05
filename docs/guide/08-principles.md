@@ -18,6 +18,7 @@
 - **Compare material alternatives.** When a novel or contested choice has several credible answers, compare concrete designs or reversible probes before committing.
 - **Keep contracts at boundaries.** Convert untrusted input into an explicit internal representation at entry points. Avoid repeating boundary checks throughout trusted logic.
 - **Make repeated operations converge.** Design retries, commands, migrations, and lifecycle operations so reruns and recovery from partial failure reach the intended state.
+- **Make cleanup recoverable.** Inventory ownership, activity, and retention needs before removing state. Recheck the exact target immediately before mutation, preserve active or ambiguous work, and prefer quarantine or archival when reversal may matter.
 
 ## Simplicity and ownership
 

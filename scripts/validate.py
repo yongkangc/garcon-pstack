@@ -131,6 +131,19 @@ def validate_delivery_gate() -> None:
             fail(f"garcon-mode delivery gate lacks {label}: {phrase}")
 
 
+def validate_cleanup_gate() -> None:
+    content = (SKILLS / "garcon-mode" / "SKILL.md").read_text(encoding="utf-8")
+    required_phrases = {
+        "pre-cleanup inventory": "Inventory ownership, activity, and retention needs",
+        "target recheck": "Recheck the exact target immediately before mutation",
+        "ambiguous-state preservation": "preserve active or ambiguous work",
+        "recoverable mutation": "prefer quarantine or archival",
+    }
+    for label, phrase in required_phrases.items():
+        if phrase not in content:
+            fail(f"garcon-mode cleanup gate lacks {label}: {phrase}")
+
+
 def validate_public_content() -> None:
     text_files = [
         path
@@ -176,6 +189,7 @@ def main() -> None:
     validate_skills()
     validate_principle_guide()
     validate_delivery_gate()
+    validate_cleanup_gate()
     validate_public_content()
     validate_markdown_links()
     print("garcon-pstack validation passed")
