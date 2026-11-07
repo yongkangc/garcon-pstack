@@ -125,6 +125,8 @@ def validate_delivery_gate() -> None:
         "success-only check rule": "Require every required check to complete with a successful conclusion",
         "exhaustive blocked rule": "Treat every other conclusion or status",
         "evidence separation": "local validation separately from hosted checks and independent review",
+        "review fixpoint": "review the updated exact head again",
+        "revision-scoped evidence": "Do not carry a clean review or passing result across later code, test, generated-file, or base changes",
     }
     for label, phrase in required_phrases.items():
         if phrase not in content:
@@ -171,6 +173,18 @@ def validate_markdown_links() -> None:
                 fail(f"broken relative link in {path.relative_to(ROOT)}: {raw_target}")
 
 
+def validate_upstream_attribution() -> None:
+    pattern = re.compile(
+        r"https://github\.com/cursor/plugins/tree/([0-9a-f]{40})/pstack"
+    )
+    revisions: set[str] = set()
+    for path in ROOT.rglob("*.md"):
+        if ".git" not in path.parts:
+            revisions.update(pattern.findall(path.read_text(encoding="utf-8")))
+    if len(revisions) != 1:
+        fail(f"Cursor pstack attribution must use one exact revision: {sorted(revisions)}")
+
+
 def main() -> None:
     validate_manifests()
     validate_skills()
@@ -178,6 +192,7 @@ def main() -> None:
     validate_delivery_gate()
     validate_public_content()
     validate_markdown_links()
+    validate_upstream_attribution()
     print("garcon-pstack validation passed")
 
 
