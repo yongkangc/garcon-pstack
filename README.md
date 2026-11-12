@@ -8,7 +8,7 @@ New users should start with [The garcon-pstack guide](docs/guide/README.md). It 
 
 ## Why this exists
 
-[Cursor pstack](https://github.com/cursor/plugins/tree/6ea74587e384e1a8035c09ae33a46fe3f881eb9b/pstack) is a broad workflow system built around Cursor primitives, model panels, agents, playbooks, and automation. [pstack-claude](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6) ports much of that system to Claude Code and provides a Codex compatibility layer.
+[Cursor pstack](https://github.com/cursor/plugins/tree/ec569379616a4826b98f0f0a205dd3411b573611/pstack) is a broad workflow system built around Cursor primitives, model panels, agents, playbooks, and automation. [pstack-claude](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6) ports much of that system to Claude Code and provides a Codex compatibility layer.
 
 This repository is a clean-room, Codex-native implementation. It is inspired by the public pstack architecture but does not copy its skill text or code.
 
@@ -112,6 +112,6 @@ Do not commit credentials, private URLs, real transcripts, customer data, or int
 
 ## Credits
 
-The dispatcher-and-playbook concept is inspired by [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/6ea74587e384e1a8035c09ae33a46fe3f881eb9b/pstack). The lightweight integration target is [cfal/garcon](https://github.com/cfal/garcon).
+The dispatcher-and-playbook concept is inspired by [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/ec569379616a4826b98f0f0a205dd3411b573611/pstack). The lightweight integration target is [cfal/garcon](https://github.com/cfal/garcon).
 
 This project is independently implemented and released under the MIT License.
