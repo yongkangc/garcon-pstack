@@ -25,6 +25,8 @@ A finding should include:
 
 Speculation is not a finding. When no confirmed defect is found, the result should say so and name any remaining test gap.
 
+Review and validation results belong to one exact revision. If review finds a defect, fix it, rerun the checks affected by that edit, and review the updated head again. Repeat until the current head has no confirmed findings and its material checks pass. A later code, test, generated-file, or base change invalidates earlier evidence unless that evidence still exercises the changed artifact.
+
 ## Verify a concrete claim
 
 Use `garcon-verify` after implementation or when auditing status:
