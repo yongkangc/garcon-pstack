@@ -2,7 +2,7 @@
 
 This guide teaches the complete `garcon-pstack` workflow through concrete tasks. The plugin is deliberately small, so the guide focuses on choosing the right skill, stating a finish condition, and evaluating the resulting evidence.
 
-The guide is independently written. It follows the task-oriented spirit of [Cursor pstack's public guide](https://github.com/cursor/plugins/tree/ec569379616a4826b98f0f0a205dd3411b573611/pstack/docs/guide) without copying its text or Cursor-specific runtime assumptions.
+The guide is independently written. It follows the task-oriented spirit of [Cursor pstack's public guide](https://github.com/cursor/plugins/tree/bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7/pstack/docs/guide) without copying its text or Cursor-specific runtime assumptions.
 
 ## Learning path
 
