@@ -125,6 +125,7 @@ def validate_delivery_gate() -> None:
         "success-only check rule": "Require every required check to complete with a successful conclusion",
         "exhaustive blocked rule": "Treat every other conclusion or status",
         "evidence separation": "local validation separately from hosted checks and independent review",
+        "final-head review fixpoint": "Repeat until the reviewed head is unchanged and has no confirmed findings",
     }
     for label, phrase in required_phrases.items():
         if phrase not in content:
