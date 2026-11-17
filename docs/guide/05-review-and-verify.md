@@ -35,7 +35,7 @@ Use `garcon-verify` after implementation or when auditing status:
 
 Verification should classify each material claim as pass, fail, or blocked and identify the evidence used.
 
-A failed full suite remains failed when one test passes alone. A matching base-branch failure narrows regression attribution, but it does not make the check pass. Call a failure flaky only when a repeatable stress or repetition probe demonstrates nondeterminism on the same revision, then use the repository's documented quarantine or exception policy. Without that evidence and policy, keep the claim failed or blocked.
+A failed full suite remains failed when one test passes alone unless repository policy accepts a named alternative. A matching base-branch failure narrows regression attribution, but it does not make the check pass. Call a failure flaky only when a repeatable stress or repetition probe demonstrates nondeterminism on the same revision, then use the repository's documented quarantine or exception policy. Without that evidence and policy, keep the claim failed or blocked.
 
 ## Keep evidence levels separate
 
