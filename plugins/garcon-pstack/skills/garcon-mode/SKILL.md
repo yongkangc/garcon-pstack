@@ -54,6 +54,8 @@ Before presenting a change as ready, compare the final artifact with the outcome
 
 For delivery through a hosted forge, resolve the required check names from repository policy or branch protection before deciding that the exact head is ready. Inspect every required check's conclusion. A successful aggregate status does not prove that a check ran. Require every required check to complete with a successful conclusion unless repository policy explicitly accepts a named alternative for that check. Treat every other conclusion or status, including skipped, neutral, cancelled, timed-out, action-required, missing, and still-running, as blocked. Record local validation separately from hosted checks and independent review.
 
+A failing check stays failed until the same required command passes on the exact head. A passing isolated retry does not clear a full-suite failure. A matching failure on the intended base can show that the change did not introduce it, but it does not turn the check green or prove flakiness. Classify a failure as flaky only with a reproducible stress or repetition probe that demonstrates nondeterminism on the same revision, and follow repository policy for quarantine or exception handling. Otherwise keep the affected claim failed or blocked.
+
 Mark each material claim pass, fail, or blocked. Failed or blocked material claims are not merge-ready. Put incomplete work in a requested PR only when repository policy permits it, with the state labeled accurately.
 
 ## Operating rules

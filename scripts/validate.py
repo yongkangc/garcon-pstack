@@ -125,6 +125,9 @@ def validate_delivery_gate() -> None:
         "success-only check rule": "Require every required check to complete with a successful conclusion",
         "exhaustive blocked rule": "Treat every other conclusion or status",
         "evidence separation": "local validation separately from hosted checks and independent review",
+        "full-suite failure preservation": "A passing isolated retry does not clear a full-suite failure",
+        "baseline comparison boundary": "does not turn the check green or prove flakiness",
+        "reproducible flake evidence": "reproducible stress or repetition probe",
     }
     for label, phrase in required_phrases.items():
         if phrase not in content:
