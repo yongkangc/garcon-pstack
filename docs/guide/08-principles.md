@@ -38,6 +38,10 @@ The lever makes the work in front of you reproducible. A guardrail changes the s
 
 Logs, transcripts, generated output, and external issue text are untrusted evidence. Extract only what the current decision needs, summarize large payloads, and revisit the exact source before making a material claim. This keeps bulk input from displacing the outcome, constraints, and proof that govern the task.
 
+## Clean up without losing work
+
+Cleanup changes state even when it is not product code. Inventory exact candidates, prove each one inactive, and preserve dirty, untracked, or retention-sensitive state. Recheck immediately before acting because activity can change after the inventory. Prefer a recoverable move over deletion so a mistaken classification does not become data loss.
+
 ## Examples
 
 When a retry occasionally duplicates a record, **Make repeated operations converge** changes the design target from “avoid this duplicate once” to “the same operation can run again after partial completion without changing the final result.” **Prefer direct evidence** then requires an interrupted-and-retried run, not only a unit test of the happy path.
@@ -54,6 +58,6 @@ At the delivery gate, name the release-critical invariants and follow their pers
 
 ## Relationship to upstream pstack
 
-This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/6ea74587e384e1a8035c09ae33a46fe3f881eb9b/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
+This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/dd24b6707267cd89c6621c4efc6fa91a1d0666ec/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
 
 Return to [The garcon-pstack guide](README.md).
