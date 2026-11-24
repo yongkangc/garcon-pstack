@@ -145,6 +145,19 @@ def validate_cleanup_gate() -> None:
             fail(f"garcon-mode cleanup gate lacks {label}: {phrase}")
 
 
+def validate_authorization_gate() -> None:
+    content = (SKILLS / "garcon-mode" / "SKILL.md").read_text(encoding="utf-8")
+    required_phrases = {
+        "read-only request boundary": "report status is read-only",
+        "diagnosis boundary": "diagnose a defect does not authorize fixing it",
+        "deployment boundary": "change code does not authorize deployment",
+        "safe observation allowance": "Safe, reversible observations",
+    }
+    for label, phrase in required_phrases.items():
+        if phrase not in content:
+            fail(f"garcon-mode authorization gate lacks {label}: {phrase}")
+
+
 def validate_public_content() -> None:
     text_files = [
         path
@@ -191,6 +204,7 @@ def main() -> None:
     validate_principle_guide()
     validate_delivery_gate()
     validate_cleanup_gate()
+    validate_authorization_gate()
     validate_public_content()
     validate_markdown_links()
     print("garcon-pstack validation passed")

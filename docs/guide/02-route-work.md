@@ -22,6 +22,8 @@ For new behavior, refactoring, or a migration, `garcon-mode` owns the delivery s
 
 Repository policy owns the base branch, worktree isolation, commits, CI, and PR metadata. Asking for a PR authorizes that delivery step, not a merge or deployment.
 
+The requested outcome also sets the mutation boundary. Explanation, review, investigation, and status requests stay read-only. Diagnosis does not silently become a fix, and a code change does not silently become a deployment or live operation. The workflow may still make safe, reversible observations needed to answer the request.
+
 ## Use the principles as steering vocabulary
 
 `garcon-mode` includes a compact set of named principles for decisions that recur across workflows. They cover empirical questions, domain modeling, refactor contracts, measured performance, holistic redesign, alternatives, abstraction, reader load, boundaries, mutable ownership, retries, incremental proof, rerunnable leverage, structural guardrails, root causes, direct evidence, and the user and maintainer experience.
