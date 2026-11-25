@@ -158,6 +158,20 @@ def validate_authorization_gate() -> None:
             fail(f"garcon-mode authorization gate lacks {label}: {phrase}")
 
 
+def validate_review_convergence_gate() -> None:
+    content = (SKILLS / "garcon-review" / "SKILL.md").read_text(encoding="utf-8")
+    required_phrases = {
+        "finding invariant": "governing invariant for each confirmed finding",
+        "repetition threshold": "two findings in one review-and-fix cycle",
+        "systematic scope": "inspect every transition or caller that can violate it",
+        "executable guardrail": "require one executable model, table-driven test, property",
+        "complete re-review": "Re-review the complete exact-head diff",
+    }
+    for label, phrase in required_phrases.items():
+        if phrase not in content:
+            fail(f"garcon-review convergence gate lacks {label}: {phrase}")
+
+
 def validate_public_content() -> None:
     text_files = [
         path
@@ -205,6 +219,7 @@ def main() -> None:
     validate_delivery_gate()
     validate_cleanup_gate()
     validate_authorization_gate()
+    validate_review_convergence_gate()
     validate_public_content()
     validate_markdown_links()
     print("garcon-pstack validation passed")
