@@ -25,6 +25,8 @@ A finding should include:
 
 Speculation is not a finding. When no confirmed defect is found, the result should say so and name any remaining test gap.
 
+Keep one invariant history for the full review-and-fix cycle. If separate review rounds find two defects against the same invariant, stop patching examples one at a time. Inspect every path that can violate the invariant, add a focused executable guardrail, and then review the complete exact head again.
+
 ## Verify a concrete claim
 
 Use `garcon-verify` after implementation or when auditing status:
