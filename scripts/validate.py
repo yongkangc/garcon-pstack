@@ -162,7 +162,9 @@ def validate_review_convergence_gate() -> None:
     content = (SKILLS / "garcon-review" / "SKILL.md").read_text(encoding="utf-8")
     required_phrases = {
         "finding invariant": "governing invariant for each confirmed finding",
-        "repetition threshold": "two findings in one review-and-fix cycle",
+        "cycle-wide history": "across the whole review-and-fix cycle",
+        "cross-round history": "Do not reset that history between review rounds",
+        "cross-round threshold": "including findings from separate rounds",
         "systematic scope": "inspect every transition or caller that can violate it",
         "executable guardrail": "require one executable model, table-driven test, property",
         "complete re-review": "Re-review the complete exact-head diff",

@@ -58,6 +58,6 @@ At the delivery gate, name the release-critical invariants and follow their pers
 
 ## Relationship to upstream pstack
 
-This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/41e400932eca14f289e7db717a70455256b6d388/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
+This vocabulary is an independent, Codex-native adaptation of ideas explored by [Cursor pstack at the reviewed revision](https://github.com/cursor/plugins/tree/b7b93c36be9bcc36a74db438e0fd385d660bc559/pstack) and [pstack-claude at the reviewed revision](https://github.com/michael-denyer/pstack-claude/tree/273d217aea3c8e0a743bcc31bd99d585e3ddf9c6). It intentionally keeps the principles inside the existing dispatcher instead of adding leaf commands, sticky startup behavior, model routing, or runtime-specific orchestration.
 
 Return to [The garcon-pstack guide](README.md).
