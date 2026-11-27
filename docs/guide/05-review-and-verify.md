@@ -27,6 +27,8 @@ Speculation is not a finding. When no confirmed defect is found, the result shou
 
 Keep one invariant history for the full review-and-fix cycle. If separate review rounds find two defects against the same invariant, stop patching examples one at a time. Inspect every path that can violate the invariant, add a focused executable guardrail, and then review the complete exact head again.
 
+Verification code needs its own adversarial check. Trace each modeled transition and state key back to the production path it represents, look for nondeterministic inputs, unsound state merging, and properties that can pass without exercising the risky path, then plant or replay a known violation. Until that negative control fails for the expected reason, a green checker proves only that the checker ran.
+
 ## Verify a concrete claim
 
 Use `garcon-verify` after implementation or when auditing status:
