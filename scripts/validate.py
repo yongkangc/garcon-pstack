@@ -174,6 +174,20 @@ def validate_review_convergence_gate() -> None:
             fail(f"garcon-review convergence gate lacks {label}: {phrase}")
 
 
+def validate_verification_artifact_review_gate() -> None:
+    content = (SKILLS / "garcon-review" / "SKILL.md").read_text(encoding="utf-8")
+    required_phrases = {
+        "proof boundary": "review its proof boundary before trusting its result",
+        "production correspondence": "Map modeled transitions and state keys to the production paths",
+        "false-proof checks": "check determinism, state-space pruning, and vacuous properties",
+        "negative control": "plant or replay a known violation",
+        "honest verdict": "unproven claim, not evidence that the product invariant holds",
+    }
+    for label, phrase in required_phrases.items():
+        if phrase not in content:
+            fail(f"garcon-review verification-artifact gate lacks {label}: {phrase}")
+
+
 def validate_public_content() -> None:
     text_files = [
         path
@@ -222,6 +236,7 @@ def main() -> None:
     validate_cleanup_gate()
     validate_authorization_gate()
     validate_review_convergence_gate()
+    validate_verification_artifact_review_gate()
     validate_public_content()
     validate_markdown_links()
     print("garcon-pstack validation passed")
